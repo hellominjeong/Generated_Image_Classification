@@ -1,39 +1,3 @@
-# import os
-# import shutil
-# import random
-
-# # 원본 이미지 경로
-# fake_src = "/mnt/data1/pair/mj228/tomesd/tome_images_stable_diffusion"
-# real_src = "/mnt/data1/pair/mj228/tomesd/resized_sampled_imagenet3"
-
-# # 대상 디렉토리
-# train_fake_dst = "/mnt/data1/pair/mj228/tomesd/Generated_Image_Classification_Min-jeong-LEE/data/train/fake"
-# val_fake_dst = "/mnt/data1/pair/mj228/tomesd/Generated_Image_Classification_Min-jeong-LEE/data/validation/fake"
-# train_real_dst = "/mnt/data1/pair/mj228/tomesd/Generated_Image_Classification_Min-jeong-LEE/data/train/real"
-# val_real_dst = "/mnt/data1/pair/mj228/tomesd/Generated_Image_Classification_Min-jeong-LEE/data/validation/real"
-
-# # 이미지 복사 함수
-# def split_and_copy(src_dir, train_dst, val_dst, seed=42):
-#     images = [f for f in os.listdir(src_dir) if f.lower().endswith(('.jpg', '.jpeg', '.png'))]
-#     assert len(images) >= 2000, f"📛 {src_dir} 에 2000장 미만의 이미지가 있습니다 (현재 {len(images)}장)."
-
-#     random.seed(seed)
-#     random.shuffle(images)
-
-#     train_images = images[:1600]
-#     val_images = images[1600:2000]
-
-#     for img in train_images:
-#         shutil.copy(os.path.join(src_dir, img), os.path.join(train_dst, img))
-#     for img in val_images:
-#         shutil.copy(os.path.join(src_dir, img), os.path.join(val_dst, img))
-
-#     print(f"✅ {src_dir} → {train_dst} (1600장), {val_dst} (400장) 복사 완료")
-
-# # 실행
-# split_and_copy(fake_src, train_fake_dst, val_fake_dst)
-# split_and_copy(real_src, train_real_dst, val_real_dst)
-
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -42,14 +6,14 @@ from torch.utils.data import DataLoader
 import matplotlib.pyplot as plt
 
 # 데이터 경로 설정
-train_dir = "/mnt/data1/pair/mj228/tomesd/Generated_Image_Classification_Min-jeong-LEE/data/train"  # 훈련 데이터 경로
-val_dir = "/mnt/data1/pair/mj228/tomesd/Generated_Image_Classification_Min-jeong-LEE/data/validation" # 검증 데이터 경로
+train_dir = "/yourpath/Generated_Image_Classification_Min-jeong-LEE/data/train"  # 훈련 데이터 경로
+val_dir = "/yourpath/Generated_Image_Classification_Min-jeong-LEE/data/validation" # 검증 데이터 경로
 
 # 하이퍼파라미터 설정
 batch_size = 32
 num_epochs = 10
 learning_rate = 0.003
-num_classes = 2  # fake와 real 두 가지 클래스
+num_classes = 2  # 생성된 이미지와 real 두 가지 클래스
 
 # 데이터 전처리: 이미지 크기 조정 및 정규화
 data_transforms = {
