@@ -15,15 +15,15 @@
     - Undermine public trust, spread confusion and hate, cause reputational and psychological harm  
   - Need for explainable AI  
     - As generative models evolve, detecting fake images becomes more difficult.  
-    - This project not only classifies images, but also uses Grad-CAM to visualize what the model is focusing on enhancing transparency.  
+    - This project not only classifies images, but also uses Grad-CAM to visualize what the model is focusing on enhancing transparency.  
 
 ### Dataset Description  
 - The dataset consists of two categories
-  - Two categories of real images and AI-generated fake images (generated using Stable Diffusion, a text-to-image diffusion model).
+  - Two categories of real images and AI-generated fake images (generated using Stable Diffusion, a text-to-image diffusion model).
   - The dataset includes a total of 4000 images, with 2000 real images and 2000 fake images.
 
 
-- Data splitting strategy
+- __Data splitting strategy__
   - Training dataset:   
     - Contains 80% of the total dataset (3200 images)  
     - Includes both real and fake images with corresponding labels (real or fake)  
@@ -33,7 +33,7 @@
       ![image](https://github.com/user-attachments/assets/22188b1c-25e2-49ff-a83f-2599be46cd44)
 
   ### Baseline model
-  - Classification model  
+  - __Classification model__  
     - Pre-trained ResNet18  
     - Optimizer: Adam  
     - Loss function: CrossEntropyLoss  
@@ -41,7 +41,7 @@
       - Batch size: 32  
       - Epochs: 10  
       - Learning rate: 0.003  
-  - Training and validation datasets transforms  
+  - __Training and validation datasets transforms__  
     - Training dataset:     
       - Resize to (224, 224)    
       - RandomHorizontalFlip (data augmentation  
@@ -50,14 +50,14 @@
     - Resize to (224, 224)   
     - Normalize: (mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
       
-  - Model train and evaludation
+  - __Model train and evaludation__
     - Training accuracy: 0.8381
     - Training loss: 0.3763
     - Best validation accuracy: 0.8375
      ![image](https://github.com/user-attachments/assets/93e585ec-7582-41c5-a380-be17a35cb0b1)  
 
       
-  - Model Interpretability with Grad-CAM  
+  - __Model Interpretability with Grad-CAM__  
     - Grad-CAM visualizations help us understand which regions the model focuses on during prediction.  
     - The model tends to highlight semantically meaningful areas, such as object shapes, textures, and boundaries.  
     - Demonstrating that the model trains relevant and interpretable features, rather than relying on spurious patterns.  
