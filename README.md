@@ -1,6 +1,6 @@
 # Generated_Image_Classification
 
-### Project introduction
+### I. Project introduction
 - __Project goal__  
   - To develop a deep learning model that effectively distinguishes between real and AI-generated images  
   - The model helps prevent the misuse of generative models (e.g., Stable Diffusion) by detecting fake content before it can be exploited  
@@ -17,7 +17,7 @@
     - As generative models evolve, detecting fake images becomes more difficult.  
     - This project not only classifies images, but also uses Grad-CAM to visualize what the model is focusing on enhancing transparency.  
 
-### Dataset Description  
+### II. Dataset Description  
 - __The dataset consists of two categories__
   - Two categories of real images and AI-generated fake images (generated using Stable Diffusion, a text-to-image diffusion model).
   - The dataset includes a total of 4000 images, with 2000 real images and 2000 fake images.
@@ -32,7 +32,7 @@
     - Used to evaluate model generalization and select the best model  
       ![image](https://github.com/user-attachments/assets/22188b1c-25e2-49ff-a83f-2599be46cd44)
 
-  ### Baseline model
+  ### III. Baseline model
   - __Classification model__  
     - Pre-trained ResNet18  
     - Optimizer: Adam  
